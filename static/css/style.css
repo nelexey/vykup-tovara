@@ -26,7 +26,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -35,6 +35,7 @@ body {
     line-height: 1.6;
     color: var(--color-text);
     background: var(--color-bg);
+    overflow-x: hidden;
 }
 
 .container {
@@ -267,11 +268,11 @@ img {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    width: 200vw;
-    margin-left: -50vw;
+    width: 100%;
     z-index: 0;
     pointer-events: none;
     opacity: 0.35;
+    overflow: hidden;
 }
 
 .hero-marquee {
@@ -805,14 +806,6 @@ img {
         overflow: hidden;
     }
     
-    html {
-        scroll-snap-type: y proximity;
-        scroll-behavior: smooth;
-    }
-    
-    .hero {
-        scroll-snap-stop: always;
-    }
     
     .hero .container {
         display: flex;
@@ -833,12 +826,12 @@ img {
         left: 0;
         right: 0;
         transform: rotate(12deg);
-        width: 130vw;
-        margin-left: -15vw;
+        width: 100%;
         gap: 16px;
         opacity: 0.3;
         z-index: 0;
         pointer-events: none;
+        overflow: hidden;
     }
     
     .hero-logos-top .hero-marquee {
@@ -897,11 +890,11 @@ img {
         left: 0;
         right: 0;
         transform: rotate(-12deg);
-        width: 130vw;
-        margin-left: -15vw;
+        width: 100%;
         gap: 16px;
         opacity: 0.3;
         z-index: 0;
+        overflow: hidden;
     }
     
     .hero-marquee {
@@ -945,7 +938,6 @@ img {
     .steps-grid {
         display: flex;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         gap: 16px;
         padding: 0 20px 16px;
         margin: 0 -20px;
@@ -960,7 +952,6 @@ img {
     .step-item {
         flex: 0 0 75vw;
         max-width: 280px;
-        scroll-snap-align: center;
         padding: 24px 20px;
         background: var(--color-bg);
         border-radius: var(--radius-lg);
@@ -1021,7 +1012,6 @@ img {
     .reviews-grid {
         display: flex;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         gap: 16px;
         padding: 0 20px 16px;
         margin: 0 -20px;
@@ -1036,7 +1026,6 @@ img {
     .review-card {
         flex: 0 0 85vw;
         max-width: 320px;
-        scroll-snap-align: center;
         padding: 24px 20px;
     }
     

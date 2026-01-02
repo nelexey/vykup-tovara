@@ -271,6 +271,7 @@ img {
     margin-left: -50vw;
     z-index: 0;
     pointer-events: none;
+    opacity: 0.35;
 }
 
 .hero-marquee {
@@ -740,6 +741,10 @@ img {
 
 /* Responsive */
 @media (max-width: 1024px) {
+    .hero-logos {
+        opacity: 0.3;
+    }
+    
     .features-grid,
     .advantages-grid {
         grid-template-columns: repeat(2, 1fr);

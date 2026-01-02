@@ -1,0 +1,351 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-logos-top">
+        <div class="hero-marquee">
+            <div class="hero-marquee-track">
+                <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                <img src="{% static 'images/avito.png' %}" alt="Авито">
+                <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                <img src="{% static 'images/avito.png' %}" alt="Авито">
+                <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                <img src="{% static 'images/avito.png' %}" alt="Авито">
+                <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                <img src="{% static 'images/avito.png' %}" alt="Авито">
+            </div>
+        </div>
+        <div class="hero-marquee hero-marquee-reverse">
+            <div class="hero-marquee-track">
+                <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Хватит терпеть убытки!</h1>
+            <p class="hero-lead">
+                Маркетплейсы «закрутили гайки», а вы всё ещё держитесь? <br>
+                Продайте остатки — сохраните часть прибыли! <br>
+                Ваши остатки — наша забота. Выкупаем быстро, платим сразу и работаем со всеми площадками.
+            </p>
+            <a href="#contact" class="btn btn-primary">Оставить заявку</a>
+        </div>
+    </div>
+    <div class="hero-logos">
+            <div class="hero-marquee">
+                <div class="hero-marquee-track">
+                    <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                    <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                    <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                    <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                    <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                    <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                    <img src="{% static 'images/wildberries.png' %}" alt="Wildberries">
+                    <img src="{% static 'images/ozon.png' %}" alt="Ozon">
+                </div>
+            </div>
+            <div class="hero-marquee hero-marquee-reverse">
+                <div class="hero-marquee-track">
+                    <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                    <img src="{% static 'images/avito.png' %}" alt="Авито">
+                    <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                    <img src="{% static 'images/avito.png' %}" alt="Авито">
+                    <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                    <img src="{% static 'images/avito.png' %}" alt="Авито">
+                    <img src="{% static 'images/yandex.png' %}" alt="Яндекс Маркет">
+                    <img src="{% static 'images/avito.png' %}" alt="Авито">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt" id="how">
+    <div class="container">
+        <div class="section-header animate-scroll animate-fade">
+            <h2>Как мы работаем</h2>
+            <p>От заявки до получения денег — 5 простых шагов</p>
+        </div>
+        <div class="steps-grid animate-scroll animate-scale">
+            <div class="step-item">
+                <h4>Заявка</h4>
+                <p>Опишите товар: объём, категория, состояние</p>
+            </div>
+            <div class="step-item">
+                <h4>Оценка</h4>
+                <p>Анализируем рынок и делаем предложение за 1–2 часа</p>
+            </div>
+            <div class="step-item">
+                <h4>Согласование</h4>
+                <p>Обсуждаем цену, сроки и способ вывоза</p>
+            </div>
+            <div class="step-item">
+                <h4>Договор</h4>
+                <p>Подписываем документы, оплачиваем в тот же день</p>
+            </div>
+            <div class="step-item">
+                <h4>Вывоз</h4>
+                <p>Забираем товар со склада в удобное время</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-header animate-scroll animate-fade">
+            <h2>Почему выбирают нас</h2>
+        </div>
+        <div class="features-grid animate-scroll animate-slide-left">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h3>Быстрая сделка</h3>
+                <p>Оценка за 1–2 часа, оплата в день подписания договора. Не затягиваем процесс.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                </svg>
+                <h3>Прозрачность</h3>
+                <p>Полный пакет документов: договор, акт, счёт-фактура. Всё официально и легально.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="1" y="6" width="22" height="12" rx="2"/>
+                    <path d="M1 10h22"/>
+                </svg>
+                <h3>Любые объёмы</h3>
+                <p>Работаем как с небольшими партиями, так и с крупными складскими остатками.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark" id="why">
+    <div class="container">
+        <div class="section-header animate-scroll animate-fade">
+            <h2>Зачем продавать остатки</h2>
+            <p>Хранение неликвида обходится дороже, чем кажется</p>
+        </div>
+        <div class="advantages-grid animate-scroll animate-slide-right">
+            <div class="advantage-card">
+                <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <h4>Освободите деньги</h4>
+                <p>Средства, замороженные в товаре, начнут работать на вас. Инвестируйте в новые закупки или развитие.</p>
+            </div>
+            <div class="advantage-card">
+                <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                <h4>Освободите склад</h4>
+                <p>Перестаньте платить за хранение товара, который не продаётся. Мы заберём его сами.</p>
+            </div>
+            <div class="advantage-card">
+                <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <h4>Избавьтесь от проблем</h4>
+                <p>Не нужно искать покупателей, устраивать распродажи или разбираться с возвратами.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header animate-scroll animate-fade">
+            <h2>Отзывы клиентов</h2>
+        </div>
+        <div class="reviews-grid animate-scroll animate-scale">
+            <article class="review-card">
+                <blockquote>Процесс выкупа был максимально простым. Оценили товар за пару часов, на следующий день уже получили деньги.</blockquote>
+                <div class="review-author">Иван Петров</div>
+                <div class="review-role">Продавец на Wildberries</div>
+            </article>
+            <article class="review-card">
+                <blockquote>Долго не могли избавиться от сезонных остатков. Ребята забрали всё оптом, документы оформили чётко.</blockquote>
+                <div class="review-author">Анна Смирнова</div>
+                <div class="review-role">Продавец на Ozon</div>
+            </article>
+            <article class="review-card">
+                <blockquote>Честная оценка, быстрая оплата. Освободили склад и вернули часть вложений — именно то, что нужно.</blockquote>
+                <div class="review-author">Дмитрий Васильев</div>
+                <div class="review-role">Продавец на Яндекс Маркет</div>
+            </article>
+            <article class="review-card">
+                <blockquote>Работаем не первый раз. Всегда оперативно, без лишних вопросов. Рекомендую коллегам.</blockquote>
+                <div class="review-author">Мария Иванова</div>
+                <div class="review-role">Продавец на нескольких площадках</div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header animate-scroll animate-fade">
+            <h2>Оставьте заявку</h2>
+            <p>Расскажите о товаре — мы свяжемся и сделаем предложение</p>
+        </div>
+        
+        {% if form_submitted %}
+            <div class="form-success">
+                <p>Спасибо! Ваша заявка принята.<br>Мы свяжемся с вами в ближайшее время.</p>
+            </div>
+        {% else %}
+            <form class="contact-form animate-scroll animate-scale" id="leadForm" method="post" action="{% url 'home' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.name }}
+                    {% if form.name.errors %}<div class="form-error">{{ form.name.errors|join:', ' }}</div>{% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.phone }}
+                    {% if form.phone.errors %}<div class="form-error">{{ form.phone.errors|join:', ' }}</div>{% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.message }}
+                    {% if form.message.errors %}<div class="form-error">{{ form.message.errors|join:', ' }}</div>{% endif %}
+                </div>
+                <div class="form-group form-checkbox">
+                    {{ form.consent }}
+                    <label for="{{ form.consent.id_for_label }}">Даю согласие на обработку <a href="{% url 'privacy' %}" target="_blank">персональных данных</a></label>
+                </div>
+                {% if form.non_field_errors %}<div class="form-error">{{ form.non_field_errors|join:', ' }}</div>{% endif %}
+                <button type="submit" class="btn btn-primary">Отправить заявку</button>
+            </form>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+// Автоформаттер телефона
+const phoneInput = document.getElementById('phone-input');
+if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+        let digits = e.target.value.replace(/\D/g, '');
+
+        if (!digits.length) {
+            e.target.value = '';
+            return;
+        }
+
+        if (digits.startsWith('8')) {
+            digits = '7' + digits.slice(1);
+        }
+        if (!digits.startsWith('7')) {
+            digits = '7' + digits;
+        }
+
+        digits = digits.slice(0, 11);
+
+        const code = digits.slice(1, 4);
+        const first = digits.slice(4, 7);
+        const second = digits.slice(7, 9);
+        const third = digits.slice(9, 11);
+
+        let formatted = '+7';
+
+        if (code.length) {
+            formatted += ' (' + code;
+            if (code.length === 3) {
+                formatted += ')';
+            }
+        }
+
+        if (first.length) {
+            formatted += (code.length === 3 ? ' ' : ' ') + first;
+        }
+
+        if (second.length) {
+            formatted += '-' + second;
+        }
+
+        if (third.length) {
+            formatted += '-' + third;
+        }
+
+        e.target.value = formatted;
+    });
+    
+    phoneInput.addEventListener('keydown', function(e) {
+        const allowedKeys = [8, 9, 13, 27, 46];
+        const navigationKeys = [35, 36, 37, 38, 39, 40];
+        const isCommand = (e.keyCode === 65 || e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88) && e.ctrlKey;
+
+        if (allowedKeys.includes(e.keyCode) || navigationKeys.includes(e.keyCode) || isCommand) {
+            return;
+        }
+
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+}
+
+const leadForm = document.getElementById('leadForm');
+if (leadForm) {
+    leadForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        this.querySelectorAll('.form-error').forEach(el => el.remove());
+        const btn = this.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Отправка...';
+
+        try {
+            const response = await fetch(this.action, {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                body: new FormData(this)
+            });
+            const result = await response.json();
+
+            if (response.ok) {
+                const success = document.createElement('div');
+                success.className = 'form-success';
+                success.innerHTML = '<p>Спасибо! Ваша заявка принята.<br>Мы свяжемся с вами в ближайшее время.</p>';
+                this.replaceWith(success);
+            } else if (result.errors) {
+                Object.entries(result.errors).forEach(([field, errors]) => {
+                    const input = this.querySelector(`[name="${field}"]`);
+                    if (input) {
+                        const err = document.createElement('div');
+                        err.className = 'form-error';
+                        err.textContent = errors.join(', ');
+                        input.parentElement.appendChild(err);
+                    }
+                });
+                btn.disabled = false;
+                btn.textContent = 'Отправить заявку';
+            } else {
+                alert(result.message || 'Ошибка отправки');
+                btn.disabled = false;
+                btn.textContent = 'Отправить заявку';
+            }
+        } catch (err) {
+            alert('Ошибка сети. Попробуйте позже.');
+            btn.disabled = false;
+            btn.textContent = 'Отправить заявку';
+        }
+    });
+}
+</script>
+{% endblock %}

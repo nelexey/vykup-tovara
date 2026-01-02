@@ -144,6 +144,9 @@ STATIC_URL = os.getenv("DJANGO_STATIC_URL", "/static/")
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+MEDIA_URL = os.getenv("DJANGO_MEDIA_URL", "/media/")
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 CONTACT_PHONE = os.getenv("CONTACT_PHONE", "+7(000) 000-00-00")
 CONTACT_SCHEDULE = os.getenv("CONTACT_SCHEDULE", "Мы работаем ежедневно")

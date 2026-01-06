@@ -2,8 +2,12 @@ from __future__ import annotations
 
 from typing import Tuple
 
+import logging
+
 import requests
 from django.conf import settings
+
+logger = logging.getLogger(__name__)
 
 TELEGRAM_API_TEMPLATE = "https://api.telegram.org/bot{token}/sendMessage"
 
@@ -36,6 +40,7 @@ def send_lead_to_telegram(name: str, phone: str, note: str = "") -> Tuple[bool, 
             response = requests.post(url, data=payload, timeout=5)
             response.raise_for_status()
         except requests.RequestException as error:
-            return False, f"Ошибка отправки в Telegram: {error}"
+            logger.exception("Ошибка при отправке заявки в Telegram (chat_id=%s)", chat_id)
+            return False, "Не удалось отправить заявку. Попробуйте позже."
 
     return True, None

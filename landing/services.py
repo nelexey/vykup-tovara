@@ -30,6 +30,8 @@ def send_lead_to_telegram(name: str, phone: str, note: str = "") -> Tuple[bool, 
     message = "\n".join(message_lines)
     url = TELEGRAM_API_TEMPLATE.format(token=token)
 
+    success_for_at_least_one = False
+
     for chat_id in chat_ids:
         payload = {
             "chat_id": chat_id,
@@ -40,7 +42,15 @@ def send_lead_to_telegram(name: str, phone: str, note: str = "") -> Tuple[bool, 
             response = requests.post(url, data=payload, timeout=5)
             response.raise_for_status()
         except requests.RequestException as error:
-            logger.exception("Ошибка при отправке заявки в Telegram (chat_id=%s)", chat_id)
-            return False, "Не удалось отправить заявку. Попробуйте позже."
+            logger.warning(
+                "Ошибка при отправке заявки в Telegram (chat_id=%s): %s",
+                chat_id,
+                error,
+            )
+        else:
+            success_for_at_least_one = True
 
-    return True, None
+    if success_for_at_least_one:
+        return True, None
+
+    return False, "Не удалось отправить заявку. Попробуйте позже."

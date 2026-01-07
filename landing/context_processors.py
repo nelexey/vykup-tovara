@@ -8,7 +8,14 @@ def _clean_phone_for_tel(phone: str) -> str:
     return "".join(ch for ch in phone if ch.isdigit() or ch in allowed).replace(" ", "")
 
 
+def _is_admin_request(request) -> bool:
+    """Проверяет, является ли запрос к админке."""
+    return request.path.startswith("/admin/")
+
+
 def site_contacts(request):
+    if _is_admin_request(request):
+        return {}
     content = load_content()
     contacts = content.get("contacts", {})
     phone = contacts.get("phone") or settings.CONTACT_PHONE
@@ -23,4 +30,6 @@ def site_contacts(request):
 
 def landing_content(request):
     """Передаёт весь редактируемый контент в шаблоны."""
+    if _is_admin_request(request):
+        return {}
     return {"content": load_content()}

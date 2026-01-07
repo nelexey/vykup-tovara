@@ -339,6 +339,8 @@ class ContentAdminSite(admin.AdminSite):
     site_header = "Панель управления сайтом"
     site_title = "Админ-панель"
     index_title = "Управление контентом"
+    
+    enable_nav_sidebar = True
 
     def get_urls(self):
         urls = super().get_urls()
@@ -416,3 +418,10 @@ class ContentAdminSite(admin.AdminSite):
 
 
 admin_site = ContentAdminSite(name="admin")
+
+# Регистрируем встроенные модели Django
+from django.contrib.auth.models import User, Group
+from django.contrib.auth.admin import UserAdmin, GroupAdmin
+
+admin_site.register(User, UserAdmin)
+admin_site.register(Group, GroupAdmin)

@@ -148,8 +148,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = os.getenv("DJANGO_STATIC_URL", "/static/")
-STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Добавляем STATICFILES_DIRS только если папка static существует
+if (BASE_DIR / 'static').exists():
+    STATICFILES_DIRS = [BASE_DIR / 'static']
+else:
+    STATICFILES_DIRS = []
 
 MEDIA_URL = os.getenv("DJANGO_MEDIA_URL", "/media/")
 MEDIA_ROOT = BASE_DIR / 'media'

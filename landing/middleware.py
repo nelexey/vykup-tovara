@@ -18,26 +18,23 @@ class AdminLoginThrottleMiddleware:
 
     def __call__(self, request):
         if request.path == "/admin/login/" and request.method == "POST":
-            try:
-                ip = self._get_client_ip(request)
-                cache_key = f"admin_login_attempts:{ip}"
-                attempts = cache.get(cache_key, 0) or 0
+            ip = self._get_client_ip(request)
+            cache_key = f"admin_login_attempts:{ip}"
+            attempts = cache.get(cache_key, 0)
 
-                if attempts >= ADMIN_LOGIN_MAX_ATTEMPTS:
-                    return HttpResponse(
-                        "Слишком много попыток входа. Попробуйте через минуту.",
-                        status=429,
-                        content_type="text/plain; charset=utf-8",
-                    )
+            if attempts >= ADMIN_LOGIN_MAX_ATTEMPTS:
+                return HttpResponse(
+                    "Слишком много попыток входа. Попробуйте через минуту.",
+                    status=429,
+                    content_type="text/plain; charset=utf-8",
+                )
 
-                response = self.get_response(request)
+            response = self.get_response(request)
 
-                if response.status_code == 200 and "login" in request.path:
-                    cache.set(cache_key, attempts + 1, ADMIN_LOGIN_THROTTLE_SECONDS)
+            if response.status_code == 200 and "login" in request.path:
+                cache.set(cache_key, attempts + 1, ADMIN_LOGIN_THROTTLE_SECONDS)
 
-                return response
-            except Exception:
-                return self.get_response(request)
+            return response
 
         return self.get_response(request)
 

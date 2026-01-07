@@ -1,0 +1,156 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+{% if messages %}
+<ul class="messagelist">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    
+    <fieldset class="module aligned">
+        <h2>🏠 Главный экран (Hero)</h2>
+        {% for field in hero_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset class="module aligned">
+        <h2>📞 Контакты</h2>
+        {% for field in contacts_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset class="module aligned">
+        <h2>📋 Как мы работаем</h2>
+        <p class="help" style="margin-bottom: 15px;">Оставьте поля пустыми, чтобы скрыть шаг</p>
+        {% for field in how_we_work_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset class="module aligned">
+        <h2>⭐ Почему выбирают нас</h2>
+        {% for field in why_choose_us_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset class="module aligned">
+        <h2>💰 Зачем продавать остатки</h2>
+        {% for field in why_sell_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset class="module aligned">
+        <h2>💬 Отзывы клиентов</h2>
+        <p class="help" style="margin-bottom: 15px;">Оставьте поля пустыми, чтобы скрыть отзыв</p>
+        {% for field in reviews_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset class="module aligned">
+        <h2>📝 Форма заявки</h2>
+        {% for field in contact_form_form %}
+        <div class="form-row">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}<p class="help">{{ field.help_text }}</p>{% endif %}
+            {% if field.errors %}<ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        {% endfor %}
+    </fieldset>
+    
+    <div class="submit-row">
+        <input type="submit" value="Сохранить все изменения" class="default">
+    </div>
+</form>
+
+<style>
+    .form-row {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .form-row:last-child {
+        border-bottom: none;
+    }
+    .form-row label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .form-row input[type="text"],
+    .form-row input[type="url"],
+    .form-row textarea {
+        width: 100%;
+        max-width: 800px;
+    }
+    .help {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+    }
+    fieldset.module {
+        margin-bottom: 20px;
+    }
+    fieldset.module h2 {
+        background: #417690;
+        color: white;
+        padding: 10px 15px;
+        margin: 0 0 15px 0;
+        font-size: 16px;
+    }
+    .submit-row {
+        padding: 20px;
+        background: #f8f8f8;
+        border-top: 1px solid #ccc;
+        position: sticky;
+        bottom: 0;
+    }
+    .submit-row input[type="submit"] {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+</style>
+{% endblock %}

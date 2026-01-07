@@ -31,13 +31,11 @@
     </div>
     <div class="container">
         <div class="hero-content">
-            <h1>Хватит терпеть убытки!</h1>
+            <h1>{{ content.hero.title }}</h1>
             <p class="hero-lead">
-                Маркетплейсы «закрутили гайки», а вы всё ещё держитесь? <br>
-                Продайте остатки — сохраните часть прибыли! <br>
-                Ваши остатки — наша забота. Выкупаем быстро, платим сразу и работаем со всеми площадками.
+                {% for line in content.hero.lead.splitlines %}{{ line }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
             </p>
-            <a href="#contact" class="btn btn-primary">Оставить заявку</a>
+            <a href="#contact" class="btn btn-primary">{{ content.hero.cta_text }}</a>
         </div>
     </div>
     <div class="hero-logos">
@@ -72,30 +70,16 @@
 <section class="section section-alt" id="how">
     <div class="container">
         <div class="section-header animate-scroll animate-fade">
-            <h2>Как мы работаем</h2>
-            <p>От заявки до получения денег — 5 простых шагов</p>
+            <h2>{{ content.how_we_work.title }}</h2>
+            <p>{{ content.how_we_work.subtitle }}</p>
         </div>
         <div class="steps-grid animate-scroll animate-scale">
+            {% for step in content.how_we_work.steps %}
             <div class="step-item">
-                <h4>Заявка</h4>
-                <p>Опишите товар: объём, категория, состояние</p>
+                <h4>{{ step.title }}</h4>
+                <p>{{ step.text }}</p>
             </div>
-            <div class="step-item">
-                <h4>Оценка</h4>
-                <p>Анализируем рынок и делаем предложение за 1–2 часа</p>
-            </div>
-            <div class="step-item">
-                <h4>Согласование</h4>
-                <p>Обсуждаем цену, сроки и способ вывоза</p>
-            </div>
-            <div class="step-item">
-                <h4>Договор</h4>
-                <p>Подписываем документы, оплачиваем в тот же день</p>
-            </div>
-            <div class="step-item">
-                <h4>Вывоз</h4>
-                <p>Забираем товар со склада в удобное время</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -103,33 +87,41 @@
 <section class="section" id="features">
     <div class="container">
         <div class="section-header animate-scroll animate-fade">
-            <h2>Почему выбирают нас</h2>
+            <h2>{{ content.why_choose_us.title }}</h2>
         </div>
         <div class="features-grid animate-scroll animate-slide-left">
+            {% with cards=content.why_choose_us.cards %}
+            {% if cards.0 %}
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                <h3>Быстрая сделка</h3>
-                <p>Оценка за 1–2 часа, оплата в день подписания договора. Не затягиваем процесс.</p>
+                <h3>{{ cards.0.title }}</h3>
+                <p>{{ cards.0.text }}</p>
             </div>
+            {% endif %}
+            {% if cards.1 %}
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     <polyline points="9 12 11 14 15 10"/>
                 </svg>
-                <h3>Прозрачность</h3>
-                <p>Полный пакет документов: договор, акт, счёт-фактура. Всё официально и легально.</p>
+                <h3>{{ cards.1.title }}</h3>
+                <p>{{ cards.1.text }}</p>
             </div>
+            {% endif %}
+            {% if cards.2 %}
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <rect x="1" y="6" width="22" height="12" rx="2"/>
                     <path d="M1 10h22"/>
                 </svg>
-                <h3>Любые объёмы</h3>
-                <p>Работаем как с небольшими партиями, так и с крупными складскими остатками.</p>
+                <h3>{{ cards.2.title }}</h3>
+                <p>{{ cards.2.text }}</p>
             </div>
+            {% endif %}
+            {% endwith %}
         </div>
     </div>
 </section>
@@ -137,34 +129,42 @@
 <section class="section section-dark" id="why">
     <div class="container">
         <div class="section-header animate-scroll animate-fade">
-            <h2>Зачем продавать остатки</h2>
-            <p>Хранение неликвида обходится дороже, чем кажется</p>
+            <h2>{{ content.why_sell.title }}</h2>
+            <p>{{ content.why_sell.subtitle }}</p>
         </div>
         <div class="advantages-grid animate-scroll animate-slide-right">
+            {% with cards=content.why_sell.cards %}
+            {% if cards.0 %}
             <div class="advantage-card">
                 <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                 </svg>
-                <h4>Освободите деньги</h4>
-                <p>Средства, замороженные в товаре, начнут работать на вас. Инвестируйте в новые закупки или развитие.</p>
+                <h4>{{ cards.0.title }}</h4>
+                <p>{{ cards.0.text }}</p>
             </div>
+            {% endif %}
+            {% if cards.1 %}
             <div class="advantage-card">
                 <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                     <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
                     <line x1="12" y1="22.08" x2="12" y2="12"/>
                 </svg>
-                <h4>Освободите склад</h4>
-                <p>Перестаньте платить за хранение товара, который не продаётся. Мы заберём его сами.</p>
+                <h4>{{ cards.1.title }}</h4>
+                <p>{{ cards.1.text }}</p>
             </div>
+            {% endif %}
+            {% if cards.2 %}
             <div class="advantage-card">
                 <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                     <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                <h4>Избавьтесь от проблем</h4>
-                <p>Не нужно искать покупателей, устраивать распродажи или разбираться с возвратами.</p>
+                <h4>{{ cards.2.title }}</h4>
+                <p>{{ cards.2.text }}</p>
             </div>
+            {% endif %}
+            {% endwith %}
         </div>
     </div>
 </section>
@@ -172,29 +172,16 @@
 <section class="section section-alt">
     <div class="container">
         <div class="section-header animate-scroll animate-fade">
-            <h2>Отзывы клиентов</h2>
+            <h2>{{ content.reviews.title }}</h2>
         </div>
         <div class="reviews-grid animate-scroll animate-scale">
+            {% for review in content.reviews.items %}
             <article class="review-card">
-                <blockquote>Процесс выкупа был максимально простым. Оценили товар за пару часов, на следующий день уже получили деньги.</blockquote>
-                <div class="review-author">Иван Петров</div>
-                <div class="review-role">Продавец на Wildberries</div>
+                <blockquote>{{ review.quote }}</blockquote>
+                <div class="review-author">{{ review.author }}</div>
+                <div class="review-role">{{ review.role }}</div>
             </article>
-            <article class="review-card">
-                <blockquote>Долго не могли избавиться от сезонных остатков. Ребята забрали всё оптом, документы оформили чётко.</blockquote>
-                <div class="review-author">Анна Смирнова</div>
-                <div class="review-role">Продавец на Ozon</div>
-            </article>
-            <article class="review-card">
-                <blockquote>Честная оценка, быстрая оплата. Освободили склад и вернули часть вложений — именно то, что нужно.</blockquote>
-                <div class="review-author">Дмитрий Васильев</div>
-                <div class="review-role">Продавец на Яндекс Маркет</div>
-            </article>
-            <article class="review-card">
-                <blockquote>Работаем не первый раз. Всегда оперативно, без лишних вопросов. Рекомендую коллегам.</blockquote>
-                <div class="review-author">Мария Иванова</div>
-                <div class="review-role">Продавец на нескольких площадках</div>
-            </article>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -202,13 +189,13 @@
 <section class="contact" id="contact">
     <div class="container">
         <div class="section-header animate-scroll animate-fade">
-            <h2>Оставьте заявку</h2>
-            <p>Расскажите о товаре — мы свяжемся и сделаем предложение</p>
+            <h2>{{ content.contact_form.title }}</h2>
+            <p>{{ content.contact_form.subtitle }}</p>
         </div>
         
         {% if form_submitted %}
             <div class="form-success">
-                <p>Спасибо! Ваша заявка принята.<br>Мы свяжемся с вами в ближайшее время.</p>
+                <p>{% for line in content.contact_form.success_message.splitlines %}{{ line }}{% if not forloop.last %}<br>{% endif %}{% endfor %}</p>
             </div>
         {% else %}
             <form class="contact-form animate-scroll animate-scale" id="leadForm" method="post" action="{% url 'home' %}">
@@ -230,7 +217,7 @@
                     <label for="{{ form.consent.id_for_label }}">Даю согласие на обработку <a href="{% url 'privacy' %}" target="_blank">персональных данных</a></label>
                 </div>
                 {% if form.non_field_errors %}<div class="form-error">{{ form.non_field_errors|join:', ' }}</div>{% endif %}
-                <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                <button type="submit" class="btn btn-primary">{{ content.contact_form.submit_button }}</button>
             </form>
         {% endif %}
     </div>
